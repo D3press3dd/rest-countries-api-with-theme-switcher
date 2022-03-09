@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  box-shadow: 0.1rem -1rem 0.8rem 1rem $dark-mode-background;
+}
+
+.navbar_theme-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  //   font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.navbar__text {
+  color: $light-mode-text;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.icon {
+  display: flex;
+
+  cursor: pointer;
+  transition: all 2s;
+}
+
+ion-icon {
+  font-size: 1.6rem;
+}
