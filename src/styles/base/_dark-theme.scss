@@ -1,13 +1,50 @@
-// .navbar.dark-theme {
-//   background-color: $dark-mode-elemnts;
-//   color: $light-mode-background;
-//   box-shadow: $black-shadow;
-// }
+.dark-theme {
+  background-color: $dark-mode-background;
+  opacity: 1;
+  transition: all 0.3s;
 
-// .navbar__text.dark-theme {
-//   color: $dark-mode-text;
-// }
+  .navbar {
+    color: $dark-mode-text;
+    box-shadow: $shadow;
+  }
 
-// body.dark-theme {
-//   background-color: $dark-mode-background;
-// }
+  .navbar__text {
+    color: $dark-mode-text;
+  }
+
+  .countries-search {
+    background-color: $dark-mode-elemnts;
+  }
+
+  .country-input {
+    background-color: inherit;
+    caret-color: #fff;
+    color: #fff;
+    &::placeholder {
+      color: $dark-mode-text;
+      opacity: 0.8;
+    }
+  }
+
+  #lupa {
+    color: #fff;
+    --ionicon-stroke-width: 3.2rem;
+  }
+
+  .select {
+    background-color: $dark-mode-elemnts;
+    color: $dark-mode-text;
+  }
+
+  .country-card {
+    background-color: inherit;
+  }
+
+  .country-name {
+    color: #fff;
+  }
+
+  .country-text {
+    color: darken($color: #fff, $amount: 30);
+  }
+}
