@@ -3,7 +3,7 @@ import { idGenerator } from "../helpers/idGenerator";
 import { initialRegion } from "../helpers/initialRegion";
 import CountryItem from "./CountryItem";
 import { useFetchData } from "../hooks/useFetchData";
-import CountryDetails from "./CountryDetails";
+import { Route } from "react-router-dom";
 
 const Countries = () => {
   const url = "https://restcountries.com/v3.1/all";
@@ -30,7 +30,7 @@ const Countries = () => {
 
   const handleCountryByText = e => {
     const searchingCountriesByText = e.target.value.toLowerCase();
-    if (searchingCountriesByText.length > 0) {
+    if (searchingCountriesByText.length > 1) {
       setFiltrandoPaises(
         countries.filter(country =>
           country.name.common.toLowerCase().includes(searchingCountriesByText)

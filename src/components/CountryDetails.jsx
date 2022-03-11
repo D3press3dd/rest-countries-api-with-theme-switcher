@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import LeftArrow from "../img/arrow-back-outline.svg";
 
 const CountryDetails = () => {
   return (
     <>
       <div className="country-back-btn">
-        <a className="country-back-word" href="#">
+        <Link className="country-back-word" to="/">
           Back
-        </a>
+        </Link>
         <img
           className="left-arrow"
           src={LeftArrow}
@@ -29,7 +30,7 @@ const CountryDetails = () => {
         {/* separator */}
         {/* separator */}
         <div className="country__details-right-info">
-          <h1>Belgium</h1>
+          <h1>hola</h1>
           <div className="country-details-middle-text">
             <div>
               <p>
