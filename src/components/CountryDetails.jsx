@@ -1,7 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import LeftArrow from "../img/arrow-back-outline.svg";
+import { fetchingDetails } from "../fetch/fetchingDetails";
+import { useState } from "react";
+import { initalCountryDetails } from "../helpers/initialCountryDetails";
+/////////////////////////
+/////////////////////////
+/////////////////////////
 
 const CountryDetails = () => {
+  const [countryDetails, setCountryDetails] = useState(initalCountryDetails);
+  const { countryName } = useParams();
+
+  useEffect(() => {
+    fetchingDetails(countryName).then(data => setCountryDetails(data));
+  }, [countryName]);
+
+  const [
+    {
+      name: { common },
+      population,
+      region,
+      subregion,
+      capital,
+      tld,
+      currencies,
+      languages,
+      borders,
+      flags: { svg },
+    },
+  ] = countryDetails;
+
+  const currencieName = Object.entries(currencies).map(valor => valor[1].name);
+  const allLanguages = Object.values(languages);
+
   return (
     <>
       <div className="country-back-btn">
@@ -12,63 +44,61 @@ const CountryDetails = () => {
           className="left-arrow"
           src={LeftArrow}
           alt="left arrow button image"
+          id="arrow"
         />
       </div>
 
-      {/* separator */}
-      {/* separator */}
-      {/* separator */}
       <div className="country__details-container">
         <div className="country__details-img-container">
           <img
             className="country__details-img"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/200px-Flag_of_Venezuela.svg.png"
+            src={svg}
             alt="bandera de venezuela"
           />
         </div>
-        {/* separator */}
-        {/* separator */}
-        {/* separator */}
+
         <div className="country__details-right-info">
-          <h1>hola</h1>
+          <h1>{common}</h1>
           <div className="country-details-middle-text">
             <div>
               <p>
-                Native Name:<span>Belgie</span>
+                Native Name:<span>hola</span>
               </p>
               <p>
-                Population:<span>11.23123.213.</span>
+                Population:<span>{population}</span>
               </p>
               <p>
-                Region:<span>Belgie</span>
+                Region:<span>{region}</span>
               </p>
               <p>
-                Sub Region:<span>Belgie</span>
+                Sub Region:<span>{subregion}</span>
               </p>
               <p>
-                capital:<span>Bruselas</span>
+                capital:
+                <span>
+                  {capital === undefined ? "Not capital Found" : capital}
+                </span>
               </p>
             </div>
             <div>
               <p>
-                Region:<span>Belgie</span>
+                Top level domain:<span>{tld}</span>
               </p>
               <p>
-                Sub Region:<span>Belgie</span>
+                Currencies:
+                <span>{currencieName}</span>
               </p>
               <p>
                 Language:
-                <span>
-                  hablo 3 malparidos idiomas asi que cuidado con lo que haces
-                </span>
+                {<span>{allLanguages.join()}</span>}
               </p>
             </div>
           </div>
           <div className="country-details-borders-text">
             <p>Border Countries</p>
-            <p>francia</p>
-            <p>venezuela</p>
-            <p>paris</p>
+            {borders
+              ? borders.map(border => <p key={border + 2}>{border}</p>)
+              : "Not Borders Found"}
           </div>
         </div>
       </div>

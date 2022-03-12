@@ -31,22 +31,9 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               localStorage.getItem("theme") === "dark-theme"
                 ? "sunny-outline"
                 : "moon-outline"
-            } //TODO probar con moon solo
+            }
             onClick={() => setTheme()}
           ></ion-icon>
-
-          {/* {darkTheme ? (
-            <ion-icon
-              name="sunny-outline" //TODO probar con moon solo
-              onClick={() => setTheme()}
-            ></ion-icon>
-          ) : (
-            <ion-icon
-              name="moon-outline"
-              onClick={() => setTheme()}
-              // className={}
-            ></ion-icon>
-          )} */}
         </div>
         <p>Dark Mode</p>
       </div>

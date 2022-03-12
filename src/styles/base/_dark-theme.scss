@@ -47,4 +47,14 @@
   .country-text {
     color: darken($color: #fff, $amount: 30);
   }
+
+  .country-back-word {
+    color: $dark-mode-text;
+  }
+
+  #arrow {
+    stroke: #fff;
+    fill: #fff;
+    color: #fff;
+  }
 }

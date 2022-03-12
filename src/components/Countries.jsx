@@ -3,11 +3,10 @@ import { idGenerator } from "../helpers/idGenerator";
 import { initialRegion } from "../helpers/initialRegion";
 import CountryItem from "./CountryItem";
 import { useFetchData } from "../hooks/useFetchData";
-import { Route } from "react-router-dom";
 
 const Countries = () => {
   const url = "https://restcountries.com/v3.1/all";
-  const { data: countries, loading, error } = useFetchData(url);
+  const { data: countries, error } = useFetchData(url);
   const [selectedByRegion, setSelectedByRegion] = useState([]);
   const [filtrandoPaises, setFiltrandoPaises] = useState([...countries]);
 
@@ -22,8 +21,12 @@ const Countries = () => {
 
   // FILTRANDO LOS PAISES POR REGION⬇⬇⬇⬇
 
-  const filterByRegion = (selectedByRegion = "") => {
-    return countries.filter(country => country.region === selectedByRegion);
+  const filterByRegion = (selectedByRegion = "All") => {
+    if (selectedByRegion === "All") {
+      return countries;
+    } else {
+      return countries.filter(country => country.region === selectedByRegion);
+    }
   };
 
   // FILTRANDO LOS PAISES POR TEXTO⬇⬇⬇⬇

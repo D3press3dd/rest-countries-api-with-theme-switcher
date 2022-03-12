@@ -17,15 +17,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Countries />} />
-        <Route path="details" element={<CountryDetails />} />
+        <Route path="details" element={<CountryDetails />}>
+          <Route path=":countryName" element={<CountryDetails />} />
+        </Route>
 
         <Route path="*" element={<Error404 />} />
       </Routes>
     </main>
   );
 }
-
-//  document.body.classList.add("dark-theme")
-//       : document.body.classList.remove
 
 export default App;

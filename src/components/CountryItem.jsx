@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link, useParams } from "react-router-dom";
 
 const CountryItem = ({ country, index }) => {
   const infoCountry = {
@@ -18,11 +19,13 @@ const CountryItem = ({ country, index }) => {
       className="country-card"
       initial={{
         opacity: 0,
-        translateX: -50,
+        translateX: -500,
+        rotate: 15,
       }}
       animate={{
         opacity: 1,
         translateX: 0,
+        rotate: 0,
       }}
       transition={{
         duration: 0.3,
@@ -30,11 +33,17 @@ const CountryItem = ({ country, index }) => {
       }}
     >
       <div className="country-image">
-        <img src={infoCountry.countryImage} alt={infoCountry.name + " flag"} />
+        <Link to={`/details/${infoCountry.name}`}>
+          <img
+            src={infoCountry.countryImage}
+            alt={infoCountry.name + " flag"}
+          />
+        </Link>
       </div>
       <div className="country-text">
-        <p className="country-name">{infoCountry.name}</p>
-
+        <Link to={`/details/${infoCountry.name}`} className="link">
+          <p className="country-name">{infoCountry.name}</p>
+        </Link>
         <p className="country-info">
           Population:<span>{" " + infoCountry.population}</span>
         </p>
@@ -51,15 +60,3 @@ const CountryItem = ({ country, index }) => {
 };
 
 export default CountryItem;
-
-// necesito
-// nombre de pais
-// population
-// region
-// capital
-// native name
-// sub region
-// top level domain
-// currencies
-// languages
-// border countries

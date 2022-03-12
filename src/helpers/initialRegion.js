@@ -1,5 +1,9 @@
 export const initialRegion = [
   {
+    value: "All",
+    name: "All",
+  },
+  {
     value: "Africa",
     name: "Africa",
   },

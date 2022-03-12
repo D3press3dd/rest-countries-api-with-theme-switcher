@@ -25,9 +25,11 @@
 
 .icon {
   display: flex;
-
   cursor: pointer;
-  transition: all 2s;
+  transition: all 0.2s;
+  &:hover {
+    transform: rotate(45deg);
+  }
 }
 
 ion-icon {
