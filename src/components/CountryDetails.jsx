@@ -4,6 +4,7 @@ import LeftArrow from "../img/arrow-back-outline.svg";
 import { fetchingDetails } from "../fetch/fetchingDetails";
 import { useState } from "react";
 import { initalCountryDetails } from "../helpers/initialCountryDetails";
+import { motion } from "framer-motion";
 /////////////////////////
 /////////////////////////
 /////////////////////////
